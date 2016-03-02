@@ -1,0 +1,94 @@
+KesKit
+======
+Keskit is a Kit for Kes.
+
+Kes needed to develop software for a school assignment and she decided to use Javascript.
+This kit was created to get her up and running. The kit contains example Javascript, CSS
+and HTML implementing a basic calculator. This calculator works in a desktop browser and
+on a mobile device (tested using Firefox 41 on Linux and Android 5 using Cordova)
+
+The instructions below work for Linux, Mac and Windows.
+
+Substitute ios for android if you want to deploy for ios (you will need a Mac to deploy to ios).
+Other platforms can be added but require modifications in gulpfile.js and index.html.
+More information: https://cordova.apache.org/docs/en/latest/guide/platforms/index.html
+
+
+Step 1: Setup development environment
+=====================================
+This development environment uses version control system Git and the node.js
+Make sure these are installed on your system:
+
+  - install Git
+      Linux: use your package manager
+      Mac: http://git-scm.com/download
+      Windows: https://git-for-windows.github.io
+  
+  - install npm
+      run installer from https://nodejs.org
+
+Then download the Keskit project and install the packages needed for development:
+
+  - get project
+      > git clone https://github.com/tuxyme/keskit.git
+      > cd keskit
+  
+  - install packages
+      > npm install
+
+
+Step 2: Run app in browser (live server)
+========================================
+- start local webserver
+    > gulp serve
+
+- open in browser
+    http://localhost:9900
+
+
+Step 3: Editing files
+=====================
+Use a proper editor to edit JavaScript, CSS or HTML files.
+If you don't have one try Atom: https://atom.io
+Changes to JS and CSS files will be loaded in the browser immediately
+
+
+
+Optional: Setup mobile device deployment
+========================================
+
+- install cordova globally
+    > npm install -g cordova
+- change tree into cordova project (using existing config.xml)
+    > mkdir www
+    > cordova platform add android
+- install adb (Android only)
+    Linux: apt-get install android-tools-adb
+    Windows, Mac: http://developer.android.com/sdk/index.html#Other
+
+- run on mobile device (standalone)
+    - make sure config.xml has this content tag:
+        <content src="index.html" />
+    - prepare for mobile deployment
+        > gulp deploy
+    - connect mobile device, check connection:
+        > adb devices
+    - install on device
+        > cordova run android --device
+
+- to run app on mobile device (run live server)
+    - edit config.xml and replace
+        <content src="index.html" />
+      with
+        <content src="http://192.168.1.1" />
+      (replace 192.168.1.1 with the IP address of the computer running the live server)
+    - prepare for mobile deployment
+        > gulp deploy
+    - install on device
+        > cordova run android --device
+    - start local webserver
+        > gulp serve
+
+
+
+

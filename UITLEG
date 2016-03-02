@@ -1,0 +1,115 @@
+
+Javascript variabele
+====================
+var legetekst = "";
+
+
+Javascript functie
+==================
+Een functie met naam log:
+    function log(tekst) {
+        console.log(tekst);
+    }
+Uitvoeren:
+    log('hallo');
+
+Een functie zonder naam (anonieme functie):
+    function (tekst) {
+        console.log(tekst);
+    }
+Uitvoeren:
+    kan niet zo
+
+Een anonieme functie toewijzen aan variabele log:
+    var log = function (tekst) {
+        console.log(tekst);
+    }
+Uitvoeren:
+    log('hallo');
+
+In de functie wordt console.log aangeroepen: een interne functie waarmee
+gegevens naar de browser console geschreven kunnen worden. De console is
+een onderdeel van de browser developer tools.
+
+
+DOM elementen vinden
+====================
+Gebruik doc voor werken met DOM elementen:
+
+De document body:
+    doc.find('body')
+De eerste button:
+    doc.find('button')
+De about page met id='page_about':
+    doc.find('#page_about')
+Een div met class='header':
+    doc.find('div.header')
+Een div met class='header' binnen de about page:
+    doc.find('#page_about div.header')
+
+
+DOM events: uitvoeren van functie na gebeurtenis
+================================================
+Als je klikt op een DOM element wordt de 'onclick' handler aangeroepen. De
+onclick handler van de body is:
+    doc.find('body').onclick
+
+Als je aan die member een anonieme functie toewijst dan wordt de code daarin
+uitgevoerd iemand op het dom element klikt:
+    doc.find('body').onclick = function(event) {
+        console.log('klik!');
+        console.log(event);
+    };
+De parameter event bevat informatie over het event. Deze kan na klikken op de
+body in de browser console worden uitgelezen dankzij de tweede regel in de functie
+
+
+Omgaan met groepen DOM elementen
+================================
+Als er meerdere (vergelijkbare) elementen zijn waar iets mee gedaan moet worden,
+zoals het toewijzen van een onclick handler, dan kan doc.forEachElement worden
+gebruikt. Bijvoorbeeld als er meerdere <button> elementen in een document zitten
+kunnen deze als volgt alle eenzelfde handler krijgen toegewezen:
+    doc.forEachElement('button', function(event) {
+        console.log('klik!', event); // meerdere parameters gescheiden met komma
+        console.log(event.target);
+    }
+In bovenstaande functie is commentaar opgenomen met //
+event.target is het DOM element waarop is geklikt.
+
+Stel dat de body tag in de html er zo uitziet:
+    <body data-dingetje="test123">
+    ...
+    </body>
+En de onclick handling zo:
+    doc.find('body').onclick = function(event) {
+         console.log(event.target.dataset.dingetje);
+    };
+Dan zal bij elke klik 'test123' worden gedumpt in de browser console.
+
+
+Een omsloten functie
+====================
+Als alle code van een applicatie in functies is vervat wordt deze snel onoverzichtelijk.
+Een manier om meer structuur in code aan te brengen is de omsloten functie:
+
+var module = (function(){
+    var m = {};
+
+    var printOpvallend = function(tekst) {
+        console.log('**** ' + tekst + ' ****');
+    };
+
+    m.print = function(tekst) {
+        printOpvallend(tekst);
+    };
+
+    return m;
+}.call());
+
+
+technieken
+==========
+drag and drop: http://www.w3schools.com/html/html5_draganddrop.asp
+
+

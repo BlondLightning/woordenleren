@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link rel="apple-touch-icon" href="./images/icon.png" />
+	<link rel="shortcut icon" type="image/png" href="./images/icon.png">
+	<link rel="stylesheet" href="css/keskit.css">
+	<link rel="stylesheet" href="css/demo.css">
+
+	<title>Woorden leren</title>
+
+	<script type="text/javascript" src="js/keskit.js"></script>
+	<script type="text/javascript" src="js/demo_gui.js"></script>
+	<script type="text/javascript" src="js/demo_logic.js"></script>
+
+	<script type="text/javascript">
+		if (location.protocol.indexOf("http") == -1)
+			document.write('<script type="text/javascript" src="cordova.js"><\/script>')
+		else {
+			if (navigator.userAgent.search('Android') > -1)
+				document.write('<script type="text/javascript" src="android/cordova.js"><\/script>')
+			else if (navigator.userAgent.search('iPhone|iPad') > -1)
+				document.write('<script type="text/javascript" src="ios/cordova.js"><\/script>');
+		}
+	</script>
+
+</head>
+<body>
+
+<div class='kit_page' id="page_main">
+	<div class='panel header'>
+		<span class='title'>Plaatjes met woorden</span>
+        <a href="#" class="action" data-action="aboutpage">terug</a>
+    </div>
+	<div class='panel content'>
+		<div class="buttons">
+			<!-- vullen met javascript -->
+		</div>
+		<div class="grid">
+			<!-- vullen met javascript -->
+		</div>
+	</div>
+	<div id="message"></div>
+</div>
+
+<div class='kit_page show' id="page_intro">
+    <div class='panel header'>
+        <span class='title'>Woorden leren</span>
+    </div>
+    <div class="panel content">
+		<div>
+			<div class="x-button action" data-action="woorden-plaatjes"><span>Woorden met plaatjes</span></div>
+			<div class="x-button action" data-action="woorden-spraak"><span>Woorden met spraak</span></div>
+			<div class="x-button action" data-action="plaatjes-geluid"><span>Plaatjes met geluid</span></div>
+			<div class="x-button action" data-action="plaatjes-woorden"><span>Plaatjes met woorden</span></div>
+			<div class="x-button action" data-action="plaatjes-spraak"><span>Plaatjes met spraak</span></div>
+		</div>
+    </div>
+</div>
+
+</body>
+</html>

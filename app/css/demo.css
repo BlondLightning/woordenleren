@@ -1,0 +1,136 @@
+div.kit_page > .header {
+    padding: 10px;
+    background-color: #444;
+    height: 5vh;
+    background: linear-gradient(#333, #222);
+    color: #ccc;
+}
+
+div.kit_page div.content {
+    margin: 0;
+    flex-grow: 2;
+    overflow-y: auto;
+    display: flex;
+    background-color: #333;
+}
+
+a.action {
+    text-decoration: none;
+    color: #bbb;
+    padding: 3px;
+    float: right;
+}
+
+a.action:hover {
+    background-color: #666;
+}
+
+div.content > div.buttons {
+    flex-basis: 30vmin;
+    background-color: #a00;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+div.content > div.grid {
+    position: relative;
+    flex-basis: 70vmin;
+    flex-grow: 2;
+    background-color: #00a;
+}
+
+div.content > div.grid.done {
+    background: url('../images/ok.png') center no-repeat;
+    background-size: 80%;
+}
+
+div.grid > div.x-button {
+    position: absolute;
+    cursor: grab;
+    cursor: -webkit-grab;
+}
+
+div.x-button {
+    cursor: pointer;
+    display: inline-block;
+    margin: 2vmin;
+    height: 10vmin;
+    line-height: 10vmin;
+    width: 10vmin;
+    background: linear-gradient(#f00, #600);
+    color: #000;
+    border-radius: 10vmin;
+    border-width: 0px;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: lowercase;
+    text-align: center;
+}
+
+div.x-button.empty {
+    background: linear-gradient(#600, #f00);
+}
+
+div.x-button:hover {
+    background-color: #833 !important;
+}
+
+div.x-button:focus {
+    outline: none;
+}
+
+div.x-button.action {
+    margin: 10px;
+    box-shadow: 0px 3px 3px #444;
+}
+
+div.x-button.dragging {
+    opacity: 0.6;
+}
+
+div.x-button.liang {
+    transition-property: background;
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    background: linear-gradient(#300, #a00);
+}
+
+div.x-button.playing {
+    transition-property: background-size;
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    background-size: 70% !important;
+}
+
+#page_intro div.content {
+    background-color: #00a;
+}
+
+#page_intro div.content > div {
+    margin: auto;
+}
+
+#page_intro div.content > div > div.x-button {
+    height: 15vmin;
+    width: 15vmin;
+    vertical-align: top;
+}
+
+#page_intro div.content > div > div.x-button > span {
+    display: block;
+    margin: auto;
+    margin-top: 2.5vmin;
+    height: 10vmin;
+    width: 8vmin;
+    font-size: 2vmin;
+    text-transform: none;
+    line-height: 3vmin;
+}
+
+
